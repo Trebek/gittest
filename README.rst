@@ -15,3 +15,5 @@ This is a readme!
 
     for card in hand:
         print card
+        
+.. include:: test/foobar.rst
