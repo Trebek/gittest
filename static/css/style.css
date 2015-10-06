@@ -1,0 +1,27 @@
+body {
+    padding: 16px;
+    font-size: 16px;
+}
+
+#wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#banner {
+    font-size: 48px;
+    font-family: Impact, sans-serif;
+    padding: 16px 0;
+}
+
+#search-box {
+    margin: 16px 0px;
+}
+
+#search-results {
+    display: none;
+}
+
+#results-list .result {
+    font-size: 16px;
+}
