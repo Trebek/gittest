@@ -15,6 +15,25 @@ function ajaxRequest(url, cfunc) {
 }
 
 
+function processSearch(e) {
+    if (e.preventDefault) e.preventDefault();
+    // console.log(e);
+    ajaxRequest(postsUrl, handleSearch);
+    // You must return false to prevent the default form behavior
+    return false;
+}
+
+
+function watchForm() {
+    var form = document.getElementById("search-form");
+    if (form.attachEvent) {
+        form.attachEvent("submit", processSearch);
+    } else {
+        form.addEventListener("submit", processSearch);
+    }
+}
+
+
 function getMatchesStrict(arr, text, sortby) {
     var matches = [];
     var i, n, x, item, weight, tags;
@@ -234,5 +253,21 @@ function handleSearch(xmlhttp) {
         document.getElementById("results-list").innerHTML = buildLinkList(matches);
     } else {
         document.getElementById("results-list").innerHTML = noMatches;
+    }
+}
+
+
+if(window.attachEvent) {
+    window.attachEvent('onload', main);
+} else {
+    if(window.onload) {
+        var curronload = window.onload;
+        var newonload = function() {
+            curronload();
+            watchForm();
+        };
+        window.onload = newonload;
+    } else {
+        window.onload = main;
     }
 }
