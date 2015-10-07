@@ -1,27 +1,132 @@
+@font-face {
+	font-family: 'Mathlete';
+	src: url('../fonts/Mathlete-Bulky-webfont.eot');
+	src: url('../fonts/Mathlete-Bulky-webfont.eot?iefix') format('eot'),
+	     url('../fonts/Mathlete-Bulky-webfont.woff') format('woff'),
+	     url('../fonts/Mathlete-Bulky-webfont.ttf') format('truetype'),
+	     url('../fonts/Mathlete-Bulky-webfont.svg#webfont') format('svg');
+}
+
+
 body {
     padding: 16px;
     font-size: 16px;
 }
 
+/*h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+}*/
+
+/*h1 {
+    text-align: center;
+}*/
+
 #wrapper {
     width: 960px;
     margin: 0 auto;
+    overflow: auto;
 }
 
 #banner {
-    font-size: 48px;
-    font-family: Impact, sans-serif;
-    padding: 16px 0;
+    height: 128px;
+    line-height: 128px;
+    text-align: center;
+}
+
+#banner .title {
+    font-size: 128px;
+    font-family: "Mathlete", serif;
 }
 
 #search-box {
-    margin: 16px 0px;
+    /*display: table;*/
+    width: 100%;
+    /*height: 100%;*/
+    padding: 0;
+    margin: 0 0 8px 0;
+    /*border-collapse: collapse;*/
+    /*margin: 16px 0 8px 0;*/
+}
+
+#search-input {
+    /*display: table-cell;*/
+    width: 438px;
+    /*width: 400px;*/
+    /*height:100%;*/
+    float: left;
+    /*padding: 1% 1%;*/
+    /*vertical-align: top;*/
+    /*margin: 0 0 0 16px;*/
+}
+
+#q {
+    width: 256px;
+}
+
+#search-sort {
+    margin: 16px 0 16px 0;
+}
+
+#search-sort input[type=radio] {
+    margin: 0 0 0 0;
+    border-radius: 0;
+}
+
+#search-sort label[for=option] {
+    margin: 0 8px 0 0;
+}
+
+#search-help {
+    /*display: table-cell;*/
+    /*width: 480px;*/
+    width: 438px;
+    /*width: 400px;*/
+    float: right;
+    /*padding: 0 1%;*/
+    /*vertical-align: top;*/
 }
 
 #search-results {
+    width: 926px;
+    height: 100%;
+}
+
+#content {
     display: none;
 }
 
-#results-list .result {
-    font-size: 16px;
+.block {
+    padding: 0 16px 24px 16px;
+}
+
+.clear {
+    clear: both;
+}
+
+.table {
+    display: table;
+    border-spacing: 8px 0;
+    border-collapse: separate;
+}
+
+.cell {
+    display: table-cell;
+    height:100%;
+    /*padding: 8px;*/
+    vertical-align: top;
+}
+
+.full-cell {
+    height: 100%;
+    -moz-box-sizing: border-box;
+}
+
+.test-query {
+    /*width: 80px;*/
+    margin-bottom: 4px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
 }
