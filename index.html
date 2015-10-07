@@ -1,7 +1,3 @@
----
-title: Javascript Playground
----
-
 <!doctype html>
 
 <html lang="en">
@@ -12,14 +8,11 @@ title: Javascript Playground
     <meta name="description" content="Github Pages Test">
     <meta name="author" content="The Dude">
 
-    <link rel="stylesheet" href="{{ site.baseurl }}/static/css/normalize.min.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/static/css/style.css">
+    <link rel="stylesheet" href="static/css/normalize.min.css">
+    <link rel="stylesheet" href="static/css/style.css?v=1.0">
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script> -->
-
-    <!-- <script src="static/js/script.js"></script>
-    <script src="static/js/search.js"></script> -->
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,49 +20,61 @@ title: Javascript Playground
 </head>
 <body>
     <div id="wrapper">
-        <div id="banner">
-            Github Pages Test
-        </div>
-        <div id="search-box">
-            <input id="q" type="text" name="query" placeholder="Enter search term" onkeydown="if (event.keyCode == 13) searchPosts()">
-            <button onclick="searchPosts()">Search</button>
-        </div>
-        <div id="content">
-            <h1>Some Header</h1>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at
-                fermentum mi. Curabitur hendrerit magna non risus gravida, et mollis leo
-                tincidunt. Praesent sed elit dictum, scelerisque nunc sollicitudin,
-                sollicitudin nulla. Aliquam feugiat ut quam at egestas. Pellentesque in
-                rutrum odio, vel mattis massa. Mauris a justo id eros porta iaculis. Aliquam
-                tempor aliquet nibh, vel viverra felis bibendum pretium. Mauris fermentum
-                erat at arcu convallis suscipit. Integer non erat nunc. In blandit sapien
-                est, et congue est laoreet et. Vivamus elementum dolor sit amet elit feugiat
-                interdum. Aenean vestibulum pulvinar ligula at facilisis.
-            </p>
-
-            <!-- <div id="search-box">
-                <form method="get" action="" data-search-form>
-                    <label for="q">Query</label>
-                    <input type="search" name="q" id="q" placeholder="Enter search term" data-search-input />
-                    <input type="submit" value="Search"/>
-                </form>
-            </div> -->
-
-            <!-- <div id="search-box">
-                <input id="q" type="text" name="query" placeholder="Enter search term" onkeydown="if (event.keyCode == 13) searchPosts()">
-                <button onclick="searchPosts()">Search</button>
-            </div> -->
-
-            <!-- <div id="test"></div> -->
-        </div>
-        <div id="search-results">
-            <h1>Results:</h1>
-            <div id="results-list"></div>
+        <div class="center">
+            <div id="banner">
+                <span class="title">Github Pages Test</span>
+            </div>
+            <div id="search-box">
+                <div id="search-input" class="block">
+                    <h1>Search</h1>
+                    <input id="q" type="text" name="query" placeholder="Enter search term" onkeydown="if (event.keyCode == 13) searchPosts()">
+                    <button onclick="searchPosts()">Search</button>
+                    <button onclick="clearSearch()">Clear</button>
+                    <div id="search-sort">
+                        <input id="option" type="radio" name="sortby" checked="checked" value="relevance">
+                        <label for="option">Relevance</label>
+                        <input id="option" type="radio" name="sortby" value="date">
+                        <label for="option">Post Date</label>
+                    </div>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">graphic parser</button>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">talkie 1990</button>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">text sci-fi 198</button>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">text</button>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">sierra</button>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">lucasarts</button>
+                    <button class="test-query" onclick="fillSearch(this.innerHTML)">infocom</button>
+                </div>
+                <div id="search-help" class="block">
+                    <h1>What?</h1>
+                    <p>
+                        Just a test of Github Pages, and also a test of a client-side
+                        static site search, using Javascript and a JSON file containing
+                        post/page data.
+                    </p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="search-results" class="block">
+                <h1>Results</h1>
+                <div id="results-list">Try searching for something!</div>
+            </div>
+            <div id="content" class="block">
+                <h1>Header</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at
+                    fermentum mi. Curabitur hendrerit magna non risus gravida, et mollis leo
+                    tincidunt. Praesent sed elit dictum, scelerisque nunc sollicitudin,
+                    sollicitudin nulla. Aliquam feugiat ut quam at egestas. Pellentesque in
+                    rutrum odio, vel mattis massa. Mauris a justo id eros porta iaculis. Aliquam
+                    tempor aliquet nibh, vel viverra felis bibendum pretium. Mauris fermentum
+                    erat at arcu convallis suscipit. Integer non erat nunc. In blandit sapien
+                    est, et congue est laoreet et. Vivamus elementum dolor sit amet elit feugiat
+                    interdum. Aenean vestibulum pulvinar ligula at facilisis.
+                </p>
+            </div>
         </div>
     </div>
-    <script src="{{ site.baseurl }}/static/js/script.js"></script>
-    <script src="{{ site.baseurl }}/static/js/search.js"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/search.js"></script>
 </body>
 </html>
