@@ -32,21 +32,21 @@ layout: null
                 <div id="search-input" class="block">
                     <h1>Search</h1>
                     <input id="q" type="text" name="query" placeholder="Enter search term" onkeydown="if (event.keyCode == 13) searchPosts()">
-                    <button onclick="searchPosts()">Search</button>
-                    <button onclick="clearSearch()">Clear</button>
+                    <input type="submit" value="Search" onclick="searchPosts()">
+                    <input type="submit" value="Clear" onclick="clearSearch()">
                     <div id="search-sort">
                         <input id="option" type="radio" name="sortby" checked="checked" value="relevance">
                         <label for="option">Relevance</label>
                         <input id="option" type="radio" name="sortby" value="date">
                         <label for="option">Post Date</label>
                     </div>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">graphic parser</button>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">talkie 1990</button>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">text sci-fi 198</button>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">text</button>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">sierra</button>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">lucasarts</button>
-                    <button class="test-query" onclick="fillSearch(this.innerHTML)">infocom</button>
+                    <input type="submit" class="test-query" value="graphic parser" onclick="fillSearch(this.value)">
+                    <input type="submit" class="test-query" value="talkie 1990" onclick="fillSearch(this.value)">
+                    <input type="submit" class="test-query" value="text sci-fi 198" onclick="fillSearch(this.value)">
+                    <input type="submit" class="test-query" value="text" onclick="fillSearch(this.value)">
+                    <input type="submit" class="test-query" value="sierra" onclick="fillSearch(this.value)">
+                    <input type="submit" class="test-query" value="lucasarts" onclick="fillSearch(this.value)">
+                    <input type="submit" class="test-query" value="infocom" onclick="fillSearch(this.value)">
                 </div>
                 <div id="search-help" class="block">
                     <h1>What?</h1>
