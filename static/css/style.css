@@ -13,7 +13,7 @@ body {
     font-size: 16px;
 }
 
-input[type=search] {
+input[type=text] {
 	background: #ffffff;
 	border-style: solid;
 	border-color: #afafaf;

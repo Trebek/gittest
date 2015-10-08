@@ -1,4 +1,4 @@
-function loadStatic(url, cfunc) {
+function loadStatic(url, cfunc, mimetype) {
     var xhr;
 
     if (window.XMLHttpRequest) {
@@ -16,6 +16,9 @@ function loadStatic(url, cfunc) {
         }
     }
     // xhr.open("GET", url, true);
+    if (mimetype != "undefined") {
+        xhr.overrideMimeType(mimetype);
+    }
     xhr.send(null);
 }
 

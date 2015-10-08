@@ -6,7 +6,7 @@ var noMatches = "Sorry, couldn't find anything.";
 function processSearch(e) {
     if (e.preventDefault) e.preventDefault();
     // console.log(e);
-    loadStatic(postsUrl, handleSearch);
+    loadStatic(postsUrl, handleSearch, "application/json");
     return false;
 }
 
@@ -39,8 +39,10 @@ function watchForm() {
     var clearButton = document.getElementById("clear-button");
     if (clearButton.attachEvent) {
         clearButton.attachEvent("onclick", processClear);
+        clearButton.attachEvent("touchend", processClear);
     } else {
         clearButton.addEventListener("click", processClear);
+        clearButton.addEventListener("touchend", processClear);
     }
 
     var testButtons = document.getElementsByClassName("test-query");
@@ -48,8 +50,10 @@ function watchForm() {
         // console.log(testButtons[i].value);
         if (testButtons[i].attachEvent) {
             testButtons[i].attachEvent("onclick", processButton);
+            testButtons[i].attachEvent("touchend", processButton);
         } else {
             testButtons[i].addEventListener("click", processButton);
+            testButtons[i].addEventListener("touchend", processButton);
         }
     }
 }
