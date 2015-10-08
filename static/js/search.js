@@ -3,16 +3,16 @@ var postsUrl = "data/posts.json";
 var noMatches = "Sorry, couldn't find anything.";
 
 
-function ajaxRequest(url, cfunc) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            cfunc(xmlhttp);
-        }
-    }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-}
+// function ajaxRequest(url, cfunc) {
+//     var xmlhttp = new XMLHttpRequest();
+//     xmlhttp.onreadystatechange = function() {
+//         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//             cfunc(xmlhttp);
+//         }
+//     }
+//     xmlhttp.open("GET", url, true);
+//     xmlhttp.send(null);
+// }
 
 
 function processSearch(e) {
@@ -24,12 +24,46 @@ function processSearch(e) {
 }
 
 
+function processButton(e) {
+    if (e.preventDefault) e.preventDefault();
+    // console.log(e);
+    fillSearch(e.target.value);
+    return false;
+}
+
+
+function processClear(e) {
+    if (e.preventDefault) e.preventDefault();
+    clearSearch();
+    return false;
+}
+
+
 function watchForm() {
+    var i;
+
     var form = document.getElementById("search-form");
     if (form.attachEvent) {
         form.attachEvent("submit", processSearch);
     } else {
         form.addEventListener("submit", processSearch);
+    }
+
+    var clearButton = document.getElementById("clear-button");
+    if (clearButton.attachEvent) {
+        clearButton.attachEvent("click", processClear);
+    } else {
+        clearButton.addEventListener("click", processClear);
+    }
+
+    var testButtons = document.getElementsByClassName("test-query");
+    for (i = 0; i < testButtons.length; i++) {
+        // console.log(testButtons[i].value);
+        if (testButtons[i].attachEvent) {
+            testButtons[i].attachEvent("click", processButton);
+        } else {
+            testButtons[i].addEventListener("click", processButton);
+        }
     }
 }
 
@@ -257,17 +291,4 @@ function handleSearch(xmlhttp) {
 }
 
 
-if(window.attachEvent) {
-    window.attachEvent('onload', main);
-} else {
-    if(window.onload) {
-        var curronload = window.onload;
-        var newonload = function() {
-            curronload();
-            watchForm();
-        };
-        window.onload = newonload;
-    } else {
-        window.onload = main;
-    }
-}
+addOnloadEvent(watchForm);
