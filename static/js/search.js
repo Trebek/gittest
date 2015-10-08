@@ -1,4 +1,4 @@
-var postsUrl = "data/posts.json";
+var postsUrl = "./data/posts.json";
 
 var noMatches = "Sorry, couldn't find anything.";
 
