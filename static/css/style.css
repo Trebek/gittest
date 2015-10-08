@@ -22,7 +22,22 @@ input[type=text] {
 	padding: 4px;
 }
 
-input[type^=button], input[type^=submit] {
+/*input[type^=button], input[type^=submit] {
+	background: #efefef;
+	border-style: solid;
+	border-color: #afafaf;
+	border-width: 1px 1px 3px 1px;
+	border-radius: 0;
+	padding: 4px;
+}*/
+
+/*input[type^=button]:active, input[type^=submit]:active {
+	position: relative;
+	top: 2px;
+	border-width: 1px 1px 1px 1px;
+}*/
+
+button {
 	background: #efefef;
 	border-style: solid;
 	border-color: #afafaf;
@@ -31,7 +46,7 @@ input[type^=button], input[type^=submit] {
 	padding: 4px;
 }
 
-input[type^=button]:active, input[type^=submit]:active {
+button:active {
 	position: relative;
 	top: 2px;
 	border-width: 1px 1px 1px 1px;

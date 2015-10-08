@@ -14,7 +14,8 @@ function processSearch(e) {
 function processButton(e) {
     if (e.preventDefault) e.preventDefault();
     // console.log(e);
-    fillSearch(e.target.value);
+    // fillSearch(e.target.value);
+    fillSearch(e.target.innerHTML);
     return false;
 }
 
@@ -29,11 +30,20 @@ function processClear(e) {
 function watchForm() {
     var i;
 
-    var form = document.getElementById("search-form");
-    if (form.attachEvent) {
-        form.attachEvent("submit", processSearch);
+    // var form = document.getElementById("search-form");
+    // if (form.attachEvent) {
+    //     form.attachEvent("submit", processSearch);
+    // } else {
+    //     form.addEventListener("submit", processSearch);
+    // }
+
+    var searchButton = document.getElementById("search-button");
+    if (searchButton.attachEvent) {
+        searchButton.attachEvent("onclick", processSearch);
+        searchButton.attachEvent("touchend", processSearch);
     } else {
-        form.addEventListener("submit", processSearch);
+        searchButton.addEventListener("click", processSearch);
+        searchButton.addEventListener("touchend", processSearch);
     }
 
     var clearButton = document.getElementById("clear-button");

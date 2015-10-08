@@ -34,25 +34,23 @@ layout: null
             <div id="search-box">
                 <div id="search-input" class="block">
                     <h1>Search</h1>
-                    <form id="search-form" method="get" action="/gittest">
-                        <input type="text" id="q" name="query" placeholder="Enter search term" onkeydown="if (event.keyCode == 13) searchPosts()">
-                        <input type="submit" value="Search">
-                        <input type="button" id="clear-button" value="Clear">
-                        <div id="search-sort">
-                            <input type="radio" id="option-relev" name="sortby" checked="checked" value="relevance">
-                            <label for="option-relev">Relevance</label>
-                            <input type="radio" id="option-date" name="sortby" value="date">
-                            <label for="option-date">Post Date</label>
-                        </div>
-                        <h3>Test Queries</h3>
-                        <input type="button" class="test-query" value="graphic parser">
-                        <input type="button" class="test-query" value="talkie 1990">
-                        <input type="button" class="test-query" value="text sci-fi 198">
-                        <input type="button" class="test-query" value="text">
-                        <input type="button" class="test-query" value="sierra">
-                        <input type="button" class="test-query" value="lucasarts">
-                        <input type="button" class="test-query" value="infocom">
-                    </form>
+                    <input type="text" id="q" name="query" placeholder="Enter query">
+                    <button id="search-button" value="Search">Search</button>
+                    <button id="clear-button" value="Clear">Clear</button>
+                    <div id="search-sort">
+                        <input type="radio" id="option-relev" name="sortby" value="relevance" checked="checked">
+                        <label for="option-relev">Relevance</label>
+                        <input type="radio" id="option-date" name="sortby" value="date">
+                        <label for="option-date">Post Date</label>
+                    </div>
+                    <h3>Test Queries</h3>
+                    <button class="test-query">graphic parser</button>
+                    <button class="test-query">talkie 1990</button>
+                    <button class="test-query">text sci-fi 198</button>
+                    <button class="test-query">text</button>
+                    <button class="test-query">sierra</button>
+                    <button class="test-query">lucasarts</button>
+                    <button class="test-query">infocom</button>
                 </div>
                 <div id="search-help" class="block">
                     <h1>What?</h1>
