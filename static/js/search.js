@@ -3,23 +3,10 @@ var postsUrl = "./data/posts.json";
 var noMatches = "Sorry, couldn't find anything.";
 
 
-// function loadStatic(url, cfunc) {
-//     var xmlhttp = new XMLHttpRequest();
-//     xmlhttp.onreadystatechange = function() {
-//         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//             cfunc(xmlhttp);
-//         }
-//     }
-//     xmlhttp.open("GET", url, true);
-//     xmlhttp.send(null);
-// }
-
-
 function processSearch(e) {
     if (e.preventDefault) e.preventDefault();
     // console.log(e);
     loadStatic(postsUrl, handleSearch);
-    // You must return false to prevent the default form behavior
     return false;
 }
 
@@ -51,7 +38,7 @@ function watchForm() {
 
     var clearButton = document.getElementById("clear-button");
     if (clearButton.attachEvent) {
-        clearButton.attachEvent("click", processClear);
+        clearButton.attachEvent("onclick", processClear);
     } else {
         clearButton.addEventListener("click", processClear);
     }
@@ -60,7 +47,7 @@ function watchForm() {
     for (i = 0; i < testButtons.length; i++) {
         // console.log(testButtons[i].value);
         if (testButtons[i].attachEvent) {
-            testButtons[i].attachEvent("click", processButton);
+            testButtons[i].attachEvent("onclick", processButton);
         } else {
             testButtons[i].addEventListener("click", processButton);
         }
@@ -253,12 +240,6 @@ function getSortValue() {
     for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
             return radios[i].value;
-            // if (radios[i].value == "relevance") {
-            //     continue;
-            // } else {
-            //     continue;
-            // }
-            // break;
         }
     }
 }
@@ -277,13 +258,14 @@ function fillSearch(value) {
 function handleSearch(xmlhttp) {
     var myArr = JSON.parse(xmlhttp.responseText);
     var query = document.getElementById("q").value;
-    console.log(query.trim().toLowerCase().split(" "));
+    // console.log(query.trim().toLowerCase().split(" "));
+    // alert(query.trim().toLowerCase());
     // document.getElementById("q").value = "";
     var sortValue = getSortValue();
     // var matches = getMatchesStrict(myArr, query, sortValue);
     var matches = getMatchesFuzzy(myArr, query, sortValue);
     // var matches = getMatchesPrecedance(myArr, query, sortValue);
-    if (query.replace(/ /g, "") != "" && matches.length > 0) {
+    if (query.trim() != "" && matches.length > 0) {
         document.getElementById("results-list").innerHTML = buildLinkList(matches);
     } else {
         document.getElementById("results-list").innerHTML = noMatches;

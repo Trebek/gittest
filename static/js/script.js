@@ -1,7 +1,7 @@
 function loadStatic(url, cfunc) {
     var xhr;
 
-    if ( window.XMLHttpRequest ) {
+    if (window.XMLHttpRequest) {
         xhr = new XMLHttpRequest();
     } else {
         xhr = new ActiveXObject('Microsoft.XMLHTTP');
