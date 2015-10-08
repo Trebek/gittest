@@ -3,7 +3,7 @@ var postsUrl = "./data/posts.json";
 var noMatches = "Sorry, couldn't find anything.";
 
 
-// function ajaxRequest(url, cfunc) {
+// function loadStatic(url, cfunc) {
 //     var xmlhttp = new XMLHttpRequest();
 //     xmlhttp.onreadystatechange = function() {
 //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -18,7 +18,7 @@ var noMatches = "Sorry, couldn't find anything.";
 function processSearch(e) {
     if (e.preventDefault) e.preventDefault();
     // console.log(e);
-    ajaxRequest(postsUrl, handleSearch);
+    loadStatic(postsUrl, handleSearch);
     // You must return false to prevent the default form behavior
     return false;
 }
@@ -244,7 +244,7 @@ function buildLinkList(matches) {
 
 
 function searchPosts() {
-    ajaxRequest(postsUrl, handleSearch);
+    loadStatic(postsUrl, handleSearch);
 }
 
 
