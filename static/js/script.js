@@ -1,12 +1,22 @@
-function ajaxRequest(url, cfunc) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            cfunc(xmlhttp);
+function loadStatic(url, cfunc) {
+    var xhr;
+
+    if ( window.XMLHttpRequest ) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+
+    xhr.open("GET", url, true);
+
+    // var xmlhttp = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            cfunc(xhr);
         }
     }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send(null);
+    // xhr.open("GET", url, true);
+    xhr.send(null);
 }
 
 
