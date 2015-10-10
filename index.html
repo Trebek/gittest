@@ -15,12 +15,49 @@ layout: null
     </head>
     <body>
         <div id="wrapper">
-            <input type="text" id="user-input" placeholder="Enter something here.">
-            <button id="the-button">PUSH ME!</button>
-            <button id="get-data-button">OR PUSH ME!</button>
-            <div id="content">
-                This is some content.
+            <div id="banner">
+                Github Pages Test
             </div>
+            <!-- <div id="menu"></div> -->
+            <div id="content">
+                <div id="search-box" class="box float-left">
+                    <h1>Search</h1>
+                    <div class="margin-bottom-8px">
+                        <input type="text" id="search-input" placeholder="Enter query here.">
+                        <button id="search-button" class="button-64px">Search</button>
+                        <button id="clear-button" class="button-64px">Clear</button>
+                    </div>
+                    <div class="margin-bottom-8px">
+                        <input type="radio" id="sort-relev" name="sort-by" value="relev">
+                        <label for="sort-relev" selected>Relevance</label>
+                        <input type="radio" id="sort-date" name="sort-by" value="date">
+                        <label for="sort-date">Post Date</label>
+                    </div>
+                    <h3>Test Queries</h3>
+                    <div class="margin-bottom-8px">
+                        <button name="test-button">text</button>
+                        <button name="test-button">graphic</button>
+                        <button name="test-button">text sci-fi 198</button>
+                        <button name="test-button">graphic fantasy 199</button>
+                        <button name="test-button">1990</button>
+                        <button name="test-button">1980</button>
+                    </div>
+                </div>
+                <div id="help-box" class="box float-left">
+                    <h1>What?</h1>
+                    Just a test of Github Pages/javascript playground.
+                </div>
+                <div class="clear"></div>
+                <div id="results-box">
+                    <h1>Results</h1>
+                    <div id="search-results">
+                        Try searching for something!
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="footer">
+                Footer text.
+            </div> -->
         </div>
     </body>
 </html>

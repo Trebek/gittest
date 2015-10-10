@@ -1,9 +1,12 @@
-dataPath = "./data/posts.json"
+var dataPath = "./data/posts.json";
+var searchData;
+
+var noMatches = "Sorry, couldn't find anything.";
 
 
-/*
+/*******************************************************************************
     Utility Functions
-*/
+*******************************************************************************/
 
 
 /*
@@ -30,7 +33,7 @@ function loadStatic(url, func, mimetype) {
         }
     }
 
-    if (mimetype != "undefined") {
+    if (mimetype != undefined) {
         xhr.overrideMimeType(mimetype);
     }
 
@@ -88,51 +91,156 @@ function wrapHandler(func) {
 function buildList(items) {
     var html = "";
     for(var i = 0; i < items.length; i++) {
-        html += '<span class="result">' + items[i].title + '</span><br>';
+        html += '<span class="result">' + items[i][0].title + '</span><br>';
     }
     return html;
 }
 
 
-/*
-    Test Functions
-*/
+/*******************************************************************************
+    Search Functions
+*******************************************************************************/
 
-function doStuff(e) {
-    var text = document.getElementById("user-input").value;
-    var content = document.getElementById("content");
-    content.innerHTML = text;
+function getMatchesFuzzy(arr, text, sortBy) {
+    var matches = [];
+    var i, n, x, item, weight, tags;
+
+    var textSplit = text.toLowerCase().split(" ");
+
+    for (i = 0; i < arr.length; i++) {
+        item = arr[i];
+        weight = 0;
+        titleSplit = item.title.toLowerCase().split(" ");
+        tags = item.tags;
+        for (n = 0; n < textSplit.length; n++) {
+            for (x = 0; x < titleSplit.length; x++) {
+                if (titleSplit[x].search(textSplit[n]) > -1) {
+                    weight += 1;
+                }
+            }
+            for (x = 0; x < tags.length; x++) {
+                if (tags[x].search(textSplit[n]) > -1) {
+                    weight += 1;
+                }
+            }
+            if (item.category.search(textSplit[n]) > -1) {
+                weight += 1;
+            }
+        }
+        if (weight) {
+            matches.push([item, weight]);
+        }
+    }
+    if (sortBy == "relev") {
+        matches = weightByRelevance(matches);
+    } else {
+        matches = weightByDate(matches);
+    }
+    matches = sortMatchesDesc(matches);
+    // console.log(matches);
+    return matches;
 }
 
 
-function displayData(xml) {
-    var data = JSON.parse(xml.responseText);
-    var content = document.getElementById("content");
-    content.innerHTML = buildList(data);
+function getSortValue() {
+    var radios = document.getElementsByName('sort-by');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+            return radios[i].value;
+        }
+    }
 }
 
 
-function loadStuff(e) {
-    loadStatic(dataPath, displayData, "application/json");
+function weightByRelevance(array) {
+    array = [for (x of array) [x[0], parseInt(x[1].toString() +
+        cleanDate(x[0].date))]];
+    return array;
 }
 
 
-function watchButtons() {
-    theButton = document.getElementById("the-button");
-    dataButton = document.getElementById("get-data-button");
-    addListener(theButton, "click", doStuff);
-    addListener(dataButton, "click", loadStuff);
+function weightByDate(array) {
+    array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
+        x[1].toString())]];
+    return array;
 }
 
 
-/*
+function sortMatchesDesc(array) {
+    return array.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+}
+
+
+function cleanDate(weight) {
+    return weight.replace(/-/g, "");
+}
+
+
+/*******************************************************************************
+    Event Handlers
+*******************************************************************************/
+
+function search(e) {
+    var query = document.getElementById("search-input").value;
+    var sortValue = getSortValue();
+    var matches = getMatchesFuzzy(window.searchData, query, sortValue);
+    if (query.trim() != "" && matches.length > 0) {
+        document.getElementById("search-results").innerHTML = buildList(matches);
+    } else {
+        document.getElementById("search-results").innerHTML = noMatches;
+    }
+}
+
+
+function clear(e) {
+    var searchInput = document.getElementById("search-input");
+    searchInput.value = "";
+}
+
+
+function processButton(e) {
+    var searchInput = document.getElementById("search-input");
+    searchInput.value = e.target.innerHTML;
+}
+
+
+/*******************************************************************************
+    Init Functions
+*******************************************************************************/
+
+function initButtons() {
+    var searchButton = document.getElementById("search-button");
+    addListener(searchButton, "click", search);
+    addListener(searchButton, "onclick", search);
+
+    var clearButton = document.getElementById("clear-button");
+    addListener(clearButton, "click", clear);
+    addListener(clearButton, "onclick", clear);
+
+    var testButtons = document.getElementsByName("test-button");
+    for (var i = 0; i < testButtons.length; i++) {
+        addListener(testButtons[i], "click", processButton);
+        addListener(testButtons[i], "onclick", processButton);
+    }
+}
+
+function initData(xml) {
+    window.searchData = JSON.parse(xml.responseText);
+    // console.log(window.searchData);
+}
+
+
+/*******************************************************************************
     Main
-*/
+*******************************************************************************/
 
 function main() {
     // console.log("Scripts running.");
     // alert("Foobar!");
-    watchButtons();
+    loadStatic(dataPath, initData, "application/json")
+    initButtons();
 }
 
 addOnload(main);
