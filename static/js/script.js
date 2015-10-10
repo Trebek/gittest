@@ -103,7 +103,7 @@ function wrapHandler(func) {
 function buildList(items) {
     var html = "";
     for(var i = 0; i < items.length; i++) {
-        html += '<span class="result">' + items[i].title + '</span><br>';
+        html += '<span class="result">' + items[i][0].title + '</span><br>';
     }
     return html;
 }
