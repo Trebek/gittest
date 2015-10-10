@@ -218,6 +218,12 @@ function processButton(e) {
 }
 
 
+function displayData(e) {
+    var searchResults = document.getElementById("search-results");
+    searchResults.innerHTML = buildList(window.searchData);
+}
+
+
 /*******************************************************************************
     Init Functions
 *******************************************************************************/
@@ -225,16 +231,16 @@ function processButton(e) {
 function initButtons() {
     var searchButton = document.getElementById("search-button");
     addListener(searchButton, "click", search);
-    // addListener(searchButton, "onclick", search);
+    addListener(searchButton, "onclick", search);
 
     var clearButton = document.getElementById("clear-button");
     addListener(clearButton, "click", clear);
-    // addListener(clearButton, "onclick", clear);
+    addListener(clearButton, "onclick", clear);
 
     var testButtons = document.getElementsByName("test-button");
     for (var i = 0; i < testButtons.length; i++) {
         addListener(testButtons[i], "click", processButton);
-        // addListener(testButtons[i], "onclick", processButton);
+        addListener(testButtons[i], "onclick", processButton);
     }
 }
 
@@ -250,8 +256,8 @@ function initData(xml) {
 
 function main() {
     // console.log("Scripts running.");
-    // alert("Foobar!");
-    loadStatic(dataPath, initData, "application/json")
+    alert("Foobar!");
+    loadStatic(dataPath, initData, "application/json");
     initButtons();
 }
 
