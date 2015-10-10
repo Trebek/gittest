@@ -113,81 +113,81 @@ function buildList(items) {
     Search Functions
 *******************************************************************************/
 
-// function getMatchesFuzzy(arr, text, sortBy) {
-//     var matches = [];
-//     var i, n, x, item, weight, tags;
-//
-//     var textSplit = text.toLowerCase().split(" ");
-//
-//     for (i = 0; i < arr.length; i++) {
-//         item = arr[i];
-//         weight = 0;
-//         titleSplit = item.title.toLowerCase().split(" ");
-//         tags = item.tags;
-//         for (n = 0; n < textSplit.length; n++) {
-//             for (x = 0; x < titleSplit.length; x++) {
-//                 if (titleSplit[x].search(textSplit[n]) > -1) {
-//                     weight += 1;
-//                 }
-//             }
-//             for (x = 0; x < tags.length; x++) {
-//                 if (tags[x].search(textSplit[n]) > -1) {
-//                     weight += 1;
-//                 }
-//             }
-//             if (item.category.search(textSplit[n]) > -1) {
-//                 weight += 1;
-//             }
-//         }
-//         if (weight) {
-//             matches.push([item, weight]);
-//         }
-//     }
-//     if (sortBy == "relev") {
-//         matches = weightByRelevance(matches);
-//     } else {
-//         matches = weightByDate(matches);
-//     }
-//     matches = sortMatchesDesc(matches);
-//     // console.log(matches);
-//     return matches;
-// }
-//
-//
-// function getSortValue() {
-//     var radios = document.getElementsByName('sort-by');
-//     for (var i = 0, length = radios.length; i < length; i++) {
-//         if (radios[i].checked) {
-//             return radios[i].value;
-//         }
-//     }
-// }
-//
-//
-// function weightByRelevance(array) {
-//     array = [for (x of array) [x[0], parseInt(x[1].toString() +
-//         cleanDate(x[0].date))]];
-//     return array;
-// }
-//
-//
-// function weightByDate(array) {
-//     array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
-//         x[1].toString())]];
-//     return array;
-// }
-//
-//
-// function sortMatchesDesc(array) {
-//     return array.sort(function(a, b) {
-//         return b[1] - a[1];
-//     });
-// }
-//
-//
-// function cleanDate(weight) {
-//     return weight.replace(/-/g, "");
-// }
+function getMatchesFuzzy(arr, text, sortBy) {
+    var matches = [];
+    var i, n, x, item, weight, tags;
+
+    var textSplit = text.toLowerCase().split(" ");
+
+    for (i = 0; i < arr.length; i++) {
+        item = arr[i];
+        weight = 0;
+        titleSplit = item.title.toLowerCase().split(" ");
+        tags = item.tags;
+        for (n = 0; n < textSplit.length; n++) {
+            for (x = 0; x < titleSplit.length; x++) {
+                if (titleSplit[x].search(textSplit[n]) > -1) {
+                    weight += 1;
+                }
+            }
+            for (x = 0; x < tags.length; x++) {
+                if (tags[x].search(textSplit[n]) > -1) {
+                    weight += 1;
+                }
+            }
+            if (item.category.search(textSplit[n]) > -1) {
+                weight += 1;
+            }
+        }
+        if (weight) {
+            matches.push([item, weight]);
+        }
+    }
+    if (sortBy == "relev") {
+        matches = weightByRelevance(matches);
+    } else {
+        matches = weightByDate(matches);
+    }
+    matches = sortMatchesDesc(matches);
+    // console.log(matches);
+    return matches;
+}
+
+
+function getSortValue() {
+    var radios = document.getElementsByName('sort-by');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+            return radios[i].value;
+        }
+    }
+}
+
+
+function weightByRelevance(array) {
+    array = [for (x of array) [x[0], parseInt(x[1].toString() +
+        cleanDate(x[0].date))]];
+    return array;
+}
+
+
+function weightByDate(array) {
+    array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
+        x[1].toString())]];
+    return array;
+}
+
+
+function sortMatchesDesc(array) {
+    return array.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+}
+
+
+function cleanDate(weight) {
+    return weight.replace(/-/g, "");
+}
 
 
 /*******************************************************************************
