@@ -1,3 +1,7 @@
+/*
+    Utility Functions
+*/
+
 function loadStatic(url, cfunc, mimetype) {
     var xhr;
 
@@ -9,21 +13,21 @@ function loadStatic(url, cfunc, mimetype) {
 
     xhr.open("GET", url, true);
 
-    // var xmlhttp = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             cfunc(xhr);
         }
     }
-    // xhr.open("GET", url, true);
+
     if (mimetype != "undefined") {
         xhr.overrideMimeType(mimetype);
     }
-    xhr.send(null);
+
+    xhr.send();
 }
 
 
-function addOnloadEvent(func) {
+function addOnload(func) {
     if(window.attachEvent) {
         window.attachEvent('onload', func);
     } else {
@@ -41,10 +45,41 @@ function addOnloadEvent(func) {
 }
 
 
-function main() {
-    // test();
-    console.log("Main running.")
+function addListener(obj, ev, func) {
+    if (obj.attachEvent) {
+        obj.attachEvent(ev, func);
+    } else {
+        obj.addEventListener(ev, func);
+    }
 }
 
 
-// addOnloadEvent(main);
+/*
+    Test Functions
+*/
+
+function doStuff(e) {
+    if (e.preventDefault) e.preventDefault();
+    content = document.getElementById("content");
+    content.innerHTML = "FOOBAR!";
+    return false;
+}
+
+
+function watchButton() {
+    theButton = document.getElementById("the-button");
+    addListener(theButton, "click", doStuff);
+}
+
+
+/*
+    Main
+*/
+
+function main() {
+    console.log("Scripts running.");
+    alert("Foobar!");
+    watchButton();
+}
+
+addOnload(main);
