@@ -172,23 +172,23 @@ function weightByRelevance(array) {
 }
 
 
-function weightByDate(array) {
-    array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
-        x[1].toString())]];
-    return array;
-}
+// function weightByDate(array) {
+//     array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
+//         x[1].toString())]];
+//     return array;
+// }
 
 
-function sortMatchesDesc(array) {
-    return array.sort(function(a, b) {
-        return b[1] - a[1];
-    });
-}
+// function sortMatchesDesc(array) {
+//     return array.sort(function(a, b) {
+//         return b[1] - a[1];
+//     });
+// }
 
 
-function cleanDate(weight) {
-    return weight.replace(/-/g, "");
-}
+// function cleanDate(weight) {
+//     return weight.replace(/-/g, "");
+// }
 
 
 /*******************************************************************************
