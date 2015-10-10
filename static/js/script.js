@@ -179,11 +179,11 @@ function getSortValue() {
 // }
 
 
-// function sortMatchesDesc(array) {
-//     return array.sort(function(a, b) {
-//         return b[1] - a[1];
-//     });
-// }
+function sortMatchesDesc(array) {
+    return array.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+}
 
 
 // function cleanDate(weight) {
