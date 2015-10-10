@@ -165,18 +165,18 @@ function getSortValue() {
 }
 
 
-// function weightByRelevance(items) {
-//     items = [for (x of items) [x[0], parseInt(x[1].toString() +
-//         cleanDate(x[0].date))]];
-//     return items;
-// }
+function weightByRelevance(items) {
+    items = [for (x of items) [x[0], parseInt(x[1].toString() +
+        cleanDate(x[0].date))]];
+    return items;
+}
 
 
-// function weightByDate(items) {
-//     items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
-//         x[1].toString())]];
-//     return items;
-// }
+function weightByDate(items) {
+    items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
+        x[1].toString())]];
+    return items;
+}
 
 
 function sortMatchesDesc(array) {
