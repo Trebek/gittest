@@ -113,97 +113,97 @@ function buildList(items) {
     Search Functions
 *******************************************************************************/
 
-function getMatchesFuzzy(arr, text, sortBy) {
-    var matches = [];
-    var i, n, x, item, weight, tags;
-
-    var textSplit = text.toLowerCase().split(" ");
-
-    for (i = 0; i < arr.length; i++) {
-        item = arr[i];
-        weight = 0;
-        titleSplit = item.title.toLowerCase().split(" ");
-        tags = item.tags;
-        for (n = 0; n < textSplit.length; n++) {
-            for (x = 0; x < titleSplit.length; x++) {
-                if (titleSplit[x].search(textSplit[n]) > -1) {
-                    weight += 1;
-                }
-            }
-            for (x = 0; x < tags.length; x++) {
-                if (tags[x].search(textSplit[n]) > -1) {
-                    weight += 1;
-                }
-            }
-            if (item.category.search(textSplit[n]) > -1) {
-                weight += 1;
-            }
-        }
-        if (weight) {
-            matches.push([item, weight]);
-        }
-    }
-    if (sortBy == "relev") {
-        matches = weightByRelevance(matches);
-    } else {
-        matches = weightByDate(matches);
-    }
-    matches = sortMatchesDesc(matches);
-    // console.log(matches);
-    return matches;
-}
-
-
-function getSortValue() {
-    var radios = document.getElementsByName('sort-by');
-    for (var i = 0, length = radios.length; i < length; i++) {
-        if (radios[i].checked) {
-            return radios[i].value;
-        }
-    }
-}
-
-
-function weightByRelevance(array) {
-    array = [for (x of array) [x[0], parseInt(x[1].toString() +
-        cleanDate(x[0].date))]];
-    return array;
-}
-
-
-function weightByDate(array) {
-    array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
-        x[1].toString())]];
-    return array;
-}
-
-
-function sortMatchesDesc(array) {
-    return array.sort(function(a, b) {
-        return b[1] - a[1];
-    });
-}
-
-
-function cleanDate(weight) {
-    return weight.replace(/-/g, "");
-}
+// function getMatchesFuzzy(arr, text, sortBy) {
+//     var matches = [];
+//     var i, n, x, item, weight, tags;
+//
+//     var textSplit = text.toLowerCase().split(" ");
+//
+//     for (i = 0; i < arr.length; i++) {
+//         item = arr[i];
+//         weight = 0;
+//         titleSplit = item.title.toLowerCase().split(" ");
+//         tags = item.tags;
+//         for (n = 0; n < textSplit.length; n++) {
+//             for (x = 0; x < titleSplit.length; x++) {
+//                 if (titleSplit[x].search(textSplit[n]) > -1) {
+//                     weight += 1;
+//                 }
+//             }
+//             for (x = 0; x < tags.length; x++) {
+//                 if (tags[x].search(textSplit[n]) > -1) {
+//                     weight += 1;
+//                 }
+//             }
+//             if (item.category.search(textSplit[n]) > -1) {
+//                 weight += 1;
+//             }
+//         }
+//         if (weight) {
+//             matches.push([item, weight]);
+//         }
+//     }
+//     if (sortBy == "relev") {
+//         matches = weightByRelevance(matches);
+//     } else {
+//         matches = weightByDate(matches);
+//     }
+//     matches = sortMatchesDesc(matches);
+//     // console.log(matches);
+//     return matches;
+// }
+//
+//
+// function getSortValue() {
+//     var radios = document.getElementsByName('sort-by');
+//     for (var i = 0, length = radios.length; i < length; i++) {
+//         if (radios[i].checked) {
+//             return radios[i].value;
+//         }
+//     }
+// }
+//
+//
+// function weightByRelevance(array) {
+//     array = [for (x of array) [x[0], parseInt(x[1].toString() +
+//         cleanDate(x[0].date))]];
+//     return array;
+// }
+//
+//
+// function weightByDate(array) {
+//     array = [for (x of array) [x[0], parseInt(cleanDate(x[0].date) +
+//         x[1].toString())]];
+//     return array;
+// }
+//
+//
+// function sortMatchesDesc(array) {
+//     return array.sort(function(a, b) {
+//         return b[1] - a[1];
+//     });
+// }
+//
+//
+// function cleanDate(weight) {
+//     return weight.replace(/-/g, "");
+// }
 
 
 /*******************************************************************************
     Event Handlers
 *******************************************************************************/
 
-function search(e) {
-    var query = document.getElementById("search-input").value;
-    var sortValue = getSortValue();
-    var matches = getMatchesFuzzy(window.searchData, query, sortValue);
-    if (query.trim() != "" && matches.length > 0) {
-        document.getElementById("search-results").innerHTML = buildList(matches);
-    } else {
-        document.getElementById("search-results").innerHTML = noMatches;
-    }
-}
+// function search(e) {
+//     var query = document.getElementById("search-input").value;
+//     var sortValue = getSortValue();
+//     var matches = getMatchesFuzzy(window.searchData, query, sortValue);
+//     if ((query.trim() != "") && (matches.length > 0)) {
+//         document.getElementById("search-results").innerHTML = buildList(matches);
+//     } else {
+//         document.getElementById("search-results").innerHTML = noMatches;
+//     }
+// }
 
 
 function clear(e) {
@@ -212,10 +212,10 @@ function clear(e) {
 }
 
 
-function processButton(e) {
-    var searchInput = document.getElementById("search-input");
-    searchInput.value = e.target.innerHTML;
-}
+// function processButton(e) {
+//     var searchInput = document.getElementById("search-input");
+//     searchInput.value = e.target.innerHTML;
+// }
 
 
 function displayData(e) {
@@ -237,11 +237,11 @@ function initButtons() {
     addListener(clearButton, "click", clear);
     addListener(clearButton, "onclick", clear);
 
-    var testButtons = document.getElementsByName("test-button");
-    for (var i = 0; i < testButtons.length; i++) {
-        addListener(testButtons[i], "click", processButton);
-        addListener(testButtons[i], "onclick", processButton);
-    }
+    // var testButtons = document.getElementsByName("test-button");
+    // for (var i = 0; i < testButtons.length; i++) {
+    //     addListener(testButtons[i], "click", processButton);
+    //     addListener(testButtons[i], "onclick", processButton);
+    // }
 }
 
 function initData(xml) {
