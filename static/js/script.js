@@ -155,14 +155,14 @@ function getMatchesFuzzy(arr, text, sortBy) {
 }
 
 
-// function getSortValue() {
-//     var radios = document.getElementsByName('sort-by');
-//     for (var i = 0, length = radios.length; i < length; i++) {
-//         if (radios[i].checked) {
-//             return radios[i].value;
-//         }
-//     }
-// }
+function getSortValue() {
+    var radios = document.getElementsByName('sort-by');
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            return radios[i].value;
+        }
+    }
+}
 
 
 // function weightByRelevance(array) {
