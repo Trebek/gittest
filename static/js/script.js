@@ -8,6 +8,18 @@ var noMatches = "Sorry, couldn't find anything.";
     Utility Functions
 *******************************************************************************/
 
+function getElement(value, attr) {
+    if ((attr === undefined) || (attr === "id")) {
+        return document.getElementById(value);
+    } else if (attr === "name") {
+        return document.getElementByName(value);
+    } else if (attr === "tag") {
+        return document.getElementByTagName(value);
+    } else if (attr === "class") {
+        return document.getElementsByClassName(value);
+    }
+}
+
 
 /*
     Loads a static file from a given url, and feeds it to the given callback.
@@ -213,16 +225,16 @@ function processButton(e) {
 function initButtons() {
     var searchButton = document.getElementById("search-button");
     addListener(searchButton, "click", search);
-    addListener(searchButton, "onclick", search);
+    // addListener(searchButton, "onclick", search);
 
     var clearButton = document.getElementById("clear-button");
     addListener(clearButton, "click", clear);
-    addListener(clearButton, "onclick", clear);
+    // addListener(clearButton, "onclick", clear);
 
     var testButtons = document.getElementsByName("test-button");
     for (var i = 0; i < testButtons.length; i++) {
         addListener(testButtons[i], "click", processButton);
-        addListener(testButtons[i], "onclick", processButton);
+        // addListener(testButtons[i], "onclick", processButton);
     }
 }
 
