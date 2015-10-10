@@ -113,45 +113,56 @@ function buildList(items) {
     Search Functions
 *******************************************************************************/
 
-function getMatchesFuzzy(arr, text, sortBy) {
-    var matches = [];
-    var i, n, x, item, weight, tags;
+// function getMatchesFuzzy(arr, text, sortBy) {
+//     var matches = [];
+//     var i, n, x, item, weight, tags;
+//
+//     var textSplit = text.toLowerCase().split(" ");
+//
+//     for (i = 0; i < arr.length; i++) {
+//         item = arr[i];
+//         weight = 0;
+//         titleSplit = item.title.toLowerCase().split(" ");
+//         tags = item.tags;
+//         for (n = 0; n < textSplit.length; n++) {
+//             for (x = 0; x < titleSplit.length; x++) {
+//                 if (titleSplit[x].search(textSplit[n]) > -1) {
+//                     weight += 1;
+//                 }
+//             }
+//             for (x = 0; x < tags.length; x++) {
+//                 if (tags[x].search(textSplit[n]) > -1) {
+//                     weight += 1;
+//                 }
+//             }
+//             if (item.category.search(textSplit[n]) > -1) {
+//                 weight += 1;
+//             }
+//         }
+//         if (weight) {
+//             matches.push([item, weight]);
+//         }
+//     }
+//     if (sortBy == "relev") {
+//         matches = weightByRelevance(matches);
+//     } else {
+//         matches = weightByDate(matches);
+//     }
+//
+//     matches = sortMatchesDesc(matches);
+//
+//     return matches;
+// }
 
-    var textSplit = text.toLowerCase().split(" ");
 
-    for (i = 0; i < arr.length; i++) {
-        item = arr[i];
-        weight = 0;
-        titleSplit = item.title.toLowerCase().split(" ");
-        tags = item.tags;
-        for (n = 0; n < textSplit.length; n++) {
-            for (x = 0; x < titleSplit.length; x++) {
-                if (titleSplit[x].search(textSplit[n]) > -1) {
-                    weight += 1;
-                }
-            }
-            for (x = 0; x < tags.length; x++) {
-                if (tags[x].search(textSplit[n]) > -1) {
-                    weight += 1;
-                }
-            }
-            if (item.category.search(textSplit[n]) > -1) {
-                weight += 1;
-            }
-        }
-        if (weight) {
-            matches.push([item, weight]);
-        }
-    }
-    if (sortBy == "relev") {
-        matches = weightByRelevance(matches);
-    } else {
-        matches = weightByDate(matches);
-    }
-    matches = sortMatchesDesc(matches);
-    // console.log(matches);
-    return matches;
-}
+// function getMatchesFuzzy(arr, text, sortBy) {
+//     var matches = [];
+//     var i, n, x, item, weight, tags;
+//
+//     var textSplit = text.toLowerCase().split(" ");
+//
+//     return arr;
+// }
 
 
 function getSortValue() {
