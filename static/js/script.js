@@ -103,7 +103,7 @@ function wrapHandler(func) {
 function buildList(items) {
     var html = "";
     for(var i = 0; i < items.length; i++) {
-        html += '<span class="result">' + items[i][0].title + '</span><br>';
+        html += '<span class="result">' + items[i].title + '</span><br>';
     }
     return html;
 }
@@ -256,7 +256,7 @@ function initData(xml) {
 
 function main() {
     // console.log("Scripts running.");
-    alert("Foobar!");
+    // alert("Foobar!");
     loadStatic(dataPath, initData, "application/json");
     initButtons();
 }
