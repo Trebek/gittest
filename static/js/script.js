@@ -165,17 +165,43 @@ function getSortValue() {
 }
 
 
+// function weightByRelevance(items) {
+//     items = [for (x of items) [x[0], parseInt(x[1].toString() +
+//         cleanDate(x[0].date))]];
+//     return items;
+// }
+
 function weightByRelevance(items) {
-    items = [for (x of items) [x[0], parseInt(x[1].toString() +
-        cleanDate(x[0].date))]];
-    return items;
+    // items = [for (x of items) [x[0], parseInt(x[1].toString() +
+    //     cleanDate(x[0].date))]];
+    // return items;
+    var new_items = [];
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        new_items.push([item[0], parseInt(item[1].toString() +
+            cleanDate(item[0].date))]);
+    }
+    return new_items;
 }
 
 
+// function weightByDate(items) {
+//     items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
+//         x[1].toString())]];
+//     return items;
+// }
+
 function weightByDate(items) {
-    items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
-        x[1].toString())]];
-    return items;
+    // items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
+    //     x[1].toString())]];
+    // return items;
+    var new_items = [];
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        new_items.push([item[0], parseInt(cleanDate(item[0].date) +
+            item[1].toString())]);
+    }
+    return new_items;
 }
 
 
