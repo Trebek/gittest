@@ -212,10 +212,10 @@ function clear(e) {
 }
 
 
-// function processButton(e) {
-//     var searchInput = document.getElementById("search-input");
-//     searchInput.value = e.target.innerHTML;
-// }
+function processButton(e) {
+    var searchInput = document.getElementById("search-input");
+    searchInput.value = e.target.innerHTML;
+}
 
 
 function displayData(e) {
@@ -237,11 +237,11 @@ function initButtons() {
     addListener(clearButton, "click", clear);
     addListener(clearButton, "onclick", clear);
 
-    // var testButtons = document.getElementsByName("test-button");
-    // for (var i = 0; i < testButtons.length; i++) {
-    //     addListener(testButtons[i], "click", processButton);
-    //     addListener(testButtons[i], "onclick", processButton);
-    // }
+    var testButtons = document.getElementsByName("test-button");
+    for (var i = 0; i < testButtons.length; i++) {
+        addListener(testButtons[i], "click", processButton);
+        addListener(testButtons[i], "onclick", processButton);
+    }
 }
 
 function initData(xml) {
