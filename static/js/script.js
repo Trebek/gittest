@@ -230,8 +230,8 @@ function displayData(e) {
 
 function initButtons() {
     var searchButton = document.getElementById("search-button");
-    addListener(searchButton, "click", search);
-    addListener(searchButton, "onclick", search);
+    addListener(searchButton, "click", displayData);
+    addListener(searchButton, "onclick", displayData);
 
     var clearButton = document.getElementById("clear-button");
     addListener(clearButton, "click", clear);
