@@ -172,9 +172,6 @@ function getSortValue() {
 // }
 
 function weightByRelevance(items) {
-    // items = [for (x of items) [x[0], parseInt(x[1].toString() +
-    //     cleanDate(x[0].date))]];
-    // return items;
     var new_items = [];
     for (var i = 0; i < items.length; i++) {
         var item = items[i];
@@ -192,9 +189,6 @@ function weightByRelevance(items) {
 // }
 
 function weightByDate(items) {
-    // items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
-    //     x[1].toString())]];
-    // return items;
     var new_items = [];
     for (var i = 0; i < items.length; i++) {
         var item = items[i];
@@ -221,16 +215,16 @@ function cleanDate(weight) {
     Event Handlers
 *******************************************************************************/
 
-// function search(e) {
-//     var query = document.getElementById("search-input").value;
-//     var sortValue = getSortValue();
-//     var matches = getMatchesFuzzy(window.searchData, query, sortValue);
-//     if ((query.trim() != "") && (matches.length > 0)) {
-//         document.getElementById("search-results").innerHTML = buildList(matches);
-//     } else {
-//         document.getElementById("search-results").innerHTML = noMatches;
-//     }
-// }
+function search(e) {
+    var query = document.getElementById("search-input").value;
+    var sortValue = getSortValue();
+    var matches = getMatchesFuzzy(window.searchData, query, sortValue);
+    if ((query.trim() != "") && (matches.length > 0)) {
+        document.getElementById("search-results").innerHTML = buildList(matches);
+    } else {
+        document.getElementById("search-results").innerHTML = noMatches;
+    }
+}
 
 
 function clear(e) {
@@ -257,8 +251,8 @@ function displayData(e) {
 
 function initButtons() {
     var searchButton = document.getElementById("search-button");
-    addListener(searchButton, "click", displayData);
-    addListener(searchButton, "onclick", displayData);
+    addListener(searchButton, "click", search);
+    addListener(searchButton, "onclick", search);
 
     var clearButton = document.getElementById("clear-button");
     addListener(clearButton, "click", clear);
