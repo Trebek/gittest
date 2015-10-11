@@ -109,6 +109,37 @@ function buildList(items) {
 }
 
 
+// function buildResultsTable(items) {
+//     var props = ["title", "tags"];
+//     var table = getElement("results-table");
+//
+//     clearResultsTable();
+//
+//     // var tbody = table.getElementsByTagName('tbody')[0];
+//     var tbody = getElement('tbody', 'tag')[0];
+//
+//     for (var i = 0; i < items.length; i++) {
+//         var item = items[i][0];
+//         // var row = tbody.insertRow(tbody.rows.length);
+//         // var row = tbody.insertRow(tbody.length);
+//         var row = tbody.insertRow(tbody.length);
+//         for (var p = 0; p < props.length; p++) {
+//             if (item.hasOwnProperty(props[p])) {
+//                 var prop = props[p];
+//                 var cell = row.insertCell();
+//                 if (prop == "tags") {
+//                     // var tags = item[prop].sort().join(", ");
+//                     var tags = Array.sort(item[prop]).join(", ");
+//                     var text = document.createTextNode(tags);
+//                 } else {
+//                     var text = document.createTextNode(item[prop]);
+//                 }
+//                 cell.appendChild(text);
+//             }
+//         }
+//     }
+// }
+
 function buildResultsTable(items) {
     var props = ["title", "tags"];
     var table = getElement("results-table");
@@ -121,11 +152,14 @@ function buildResultsTable(items) {
     for (var i = 0; i < items.length; i++) {
         var item = items[i][0];
         // var row = tbody.insertRow(tbody.rows.length);
-        var row = tbody.insertRow(tbody.length);
+        // var row = tbody.insertRow(tbody.length);
+        // var row = tbody.insertRow(tbody.length);
+        var row = document.createElement('tr');
         for (var p = 0; p < props.length; p++) {
             if (item.hasOwnProperty(props[p])) {
                 var prop = props[p];
-                var cell = row.insertCell();
+                // var cell = row.insertCell();
+                var cell = document.createElement('td');
                 if (prop == "tags") {
                     // var tags = item[prop].sort().join(", ");
                     var tags = Array.sort(item[prop]).join(", ");
@@ -134,8 +168,10 @@ function buildResultsTable(items) {
                     var text = document.createTextNode(item[prop]);
                 }
                 cell.appendChild(text);
+                row.appendChild(cell);
             }
         }
+        tbody.appendChild(row);
     }
 }
 
