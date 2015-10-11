@@ -1,22 +1,22 @@
 var dataPath = "./data/posts.json";
 var searchData;
 
-var noMatches = "Sorry, couldn't find anything.";
+var noResults = "Sorry, couldn't find anything.";
 
 
 /*******************************************************************************
     Utility Functions
 *******************************************************************************/
 
-function getElement(value, attr) {
-    if ((attr === undefined) || (attr === "id")) {
-        return document.getElementById(value);
-    } else if (attr === "name") {
-        return document.getElementByName(value);
-    } else if (attr === "tag") {
-        return document.getElementByTagName(value);
-    } else if (attr === "class") {
-        return document.getElementsByClassName(value);
+function getElement(name, attrType) {
+    if ((attrType === undefined) || (attrType === "id")) {
+        return document.getElementById(name);
+    } else if (attrType === "name") {
+        return document.getElementsByName(name);
+    } else if (attrType === "tag") {
+        return document.getElementsByTagName(name);
+    } else if (attrType === "class") {
+        return document.getElementsByClassName(name);
     }
 }
 
@@ -109,6 +109,50 @@ function buildList(items) {
 }
 
 
+function buildResultsTable(items) {
+    var props = ["title", "tags"];
+    var table = getElement("results-table");
+
+    clearResultsTable();
+
+    // var tbody = table.getElementsByTagName('tbody')[0];
+    var tbody = getElement('tbody', 'tag')[0];
+
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i][0];
+        var row = tbody.insertRow(tbody.rows.length);
+        for (var p = 0; p < props.length; p++) {
+            if (item.hasOwnProperty(props[p])) {
+                var prop = props[p];
+                var cell = row.insertCell();
+                if (prop == "tags") {
+                    // var tags = item[prop].sort().join(", ");
+                    var tags = Array.sort(item[prop]).join(", ");
+                    var text = document.createTextNode(tags);
+                } else {
+                    var text = document.createTextNode(item[prop]);
+                }
+                cell.appendChild(text);
+            }
+        }
+    }
+}
+
+
+function clearResultsTable() {
+    var table = getElement("results-table");
+    var tbody = getElement('tbody', 'tag')[0];
+    var tbodyLength = tbody.length;
+
+    while (tbodyLength) {
+        table.removeChild(tbody[--tbodyLength]);
+    }
+
+    var tbodyNew = document.createElement('tbody');
+    tbody.parentNode.replaceChild(tbodyNew, tbody);
+}
+
+
 /*******************************************************************************
     Search Functions
 *******************************************************************************/
@@ -156,7 +200,7 @@ function getMatchesFuzzy(arr, text, sortBy) {
 
 
 function getSortValue() {
-    var radios = document.getElementsByName('sort-by');
+    var radios = getElement("sort-by", "name");
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
             return radios[i].value;
@@ -164,12 +208,6 @@ function getSortValue() {
     }
 }
 
-
-// function weightByRelevance(items) {
-//     items = [for (x of items) [x[0], parseInt(x[1].toString() +
-//         cleanDate(x[0].date))]];
-//     return items;
-// }
 
 function weightByRelevance(items) {
     var new_items = [];
@@ -181,12 +219,6 @@ function weightByRelevance(items) {
     return new_items;
 }
 
-
-// function weightByDate(items) {
-//     items = [for (x of items) [x[0], parseInt(cleanDate(x[0].date) +
-//         x[1].toString())]];
-//     return items;
-// }
 
 function weightByDate(items) {
     var new_items = [];
@@ -216,31 +248,38 @@ function cleanDate(weight) {
 *******************************************************************************/
 
 function search(e) {
-    var query = document.getElementById("search-input").value;
+    var query = getElement("search-input").value;
     var sortValue = getSortValue();
     var matches = getMatchesFuzzy(window.searchData, query, sortValue);
     if ((query.trim() != "") && (matches.length > 0)) {
-        document.getElementById("search-results").innerHTML = buildList(matches);
+        getElement("results-message").style.display = "none";
+        getElement("results-table").style.display = "table";
+        // getElement("search-results").innerHTML = buildList(matches);
+        buildResultsTable(matches);
     } else {
-        document.getElementById("search-results").innerHTML = noMatches;
+        clearResultsTable();
+        getElement("results-table").style.display = "none";
+        resultsMessage = getElement("results-message");
+        resultsMessage.style.display = "block";
+        resultsMessage.innerHTML = noResults;
     }
 }
 
 
 function clear(e) {
-    var searchInput = document.getElementById("search-input");
+    var searchInput = getElement("search-input");
     searchInput.value = "";
 }
 
 
 function processButton(e) {
-    var searchInput = document.getElementById("search-input");
+    var searchInput = getElement("search-input");
     searchInput.value = e.target.innerHTML;
 }
 
 
 function displayData(e) {
-    var searchResults = document.getElementById("search-results");
+    var searchResults = getElement("search-results");
     searchResults.innerHTML = buildList(window.searchData);
 }
 
@@ -250,15 +289,15 @@ function displayData(e) {
 *******************************************************************************/
 
 function initButtons() {
-    var searchButton = document.getElementById("search-button");
+    var searchButton = getElement("search-button");
     addListener(searchButton, "click", search);
     addListener(searchButton, "onclick", search);
 
-    var clearButton = document.getElementById("clear-button");
+    var clearButton = getElement("clear-button");
     addListener(clearButton, "click", clear);
     addListener(clearButton, "onclick", clear);
 
-    var testButtons = document.getElementsByName("test-button");
+    var testButtons = getElement("test-button", "name");
     for (var i = 0; i < testButtons.length; i++) {
         addListener(testButtons[i], "click", processButton);
         addListener(testButtons[i], "onclick", processButton);
@@ -267,7 +306,6 @@ function initButtons() {
 
 function initData(xml) {
     window.searchData = JSON.parse(xml.responseText);
-    // console.log(window.searchData);
 }
 
 
@@ -277,7 +315,6 @@ function initData(xml) {
 
 function main() {
     // console.log("Scripts running.");
-    // alert("Foobar!");
     loadStatic(dataPath, initData, "application/json");
     initButtons();
 }

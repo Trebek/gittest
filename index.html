@@ -25,21 +25,24 @@ layout: null
                     <h1>Search</h1>
                     <div class="margin-bottom-8px">
                         <input type="text" id="search-input" placeholder="Enter query here.">
-                        <button id="search-button" class="button-64px">Search</button>
-                        <button id="clear-button" class="button-64px">Clear</button>
+                        <button id="search-button" class="width-64px">Search</button>
+                        <button id="clear-button" class="width-64px">Clear</button>
                     </div>
                     <div class="margin-bottom-8px">
                         <input type="radio" id="sort-relev" name="sort-by" value="relev" checked>
-                        <label for="sort-relev">Relevance</label>
+                        <label name="sort-by" for="sort-relev">Relevance</label>
                         <input type="radio" id="sort-date" name="sort-by" value="date">
-                        <label for="sort-date">Post Date</label>
+                        <label name="sort-by" for="sort-date">Post Date</label>
                     </div>
                     <h3>Test Queries</h3>
                     <div class="margin-bottom-8px">
                         <button name="test-button">text</button>
                         <button name="test-button">graphic</button>
                         <button name="test-button">text sci-fi 198</button>
-                        <button name="test-button">graphic fantasy 199</button>
+                        <button name="test-button">fantasy 199</button>
+                        <button name="test-button">infocom</button>
+                        <button name="test-button">lucasarts</button>
+                        <button name="test-button">sierra</button>
                         <button name="test-button">1990</button>
                         <button name="test-button">1980</button>
                     </div>
@@ -52,7 +55,16 @@ layout: null
                 <div id="results-box">
                     <h1>Results</h1>
                     <div id="search-results">
-                        Try searching for something!
+                        <table id="results-table">
+                            <thead>
+                                <tr>
+                                    <th class="width-37perc">Title</th>
+                                    <th class="width-62perc">Tags</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <span id="results-message">Try searching for something!</span>
                     </div>
                 </div>
             </div>
