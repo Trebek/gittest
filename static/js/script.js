@@ -157,16 +157,16 @@ function buildResultsTable(items) {
         for (var p = 0; p < props.length; p++) {
             if (item.hasOwnProperty(props[p])) {
                 var prop = props[p];
-                // var cell = row.insertCell(p);
+                var text;
+                var cell = row.insertCell(p);
                 // var cell = document.createElement('TD');
                 if (prop == "tags") {
                     // var tags = item[prop].sort().join(", ");
                     var tags = Array.sort(item[prop]).join(", ");
-                    var text = document.createTextNode(tags);
+                    text = document.createTextNode(tags);
                 } else {
-                    var text = document.createTextNode(item[prop]);
+                    text = document.createTextNode(item[prop]);
                 }
-                var cell = row.insertCell(p);
                 cell.appendChild(text);
                 // row.appendChild(cell);
             }
@@ -181,9 +181,9 @@ function clearResultsTable() {
     var tbody = getElement('tbody', 'tag')[0];
     var tbodyLength = tbody.length;
 
-    // while (tbodyLength) {
-    //     table.removeChild(tbody[--tbodyLength]);
-    // }
+    while (tbodyLength) {
+        table.removeChild(tbody[--tbodyLength]);
+    }
 
     var tbodyNew = document.createElement('TBODY');
     tbody.parentNode.replaceChild(tbodyNew, tbody);
