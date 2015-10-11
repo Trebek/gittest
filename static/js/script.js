@@ -142,7 +142,7 @@ function buildList(items) {
 
 function buildResultsTable(items) {
     var props = ["title", "tags"];
-    var table = getElement("results-table");
+    // var table = getElement("results-table");
 
     clearResultsTable();
 
@@ -151,27 +151,27 @@ function buildResultsTable(items) {
 
     for (var i = 0; i < items.length; i++) {
         var item = items[i][0];
-        // var row = tbody.insertRow(tbody.rows.length);
         var row = tbody.insertRow(tbody.length);
-        // var row = document.createElement('TR');
         for (var p = 0; p < props.length; p++) {
             if (item.hasOwnProperty(props[p])) {
                 var prop = props[p];
-                var text;
                 var cell = row.insertCell(p);
-                // var cell = document.createElement('TD');
+                var text;
                 if (prop == "tags") {
-                    // var tags = item[prop].sort().join(", ");
-                    var tags = Array.sort(item[prop]).join(", ");
+                    // var tags = Array.sort(item[prop]).join(", ");
+                    var tags = item[prop];
+                    tags.sort(function(a, b) {
+                        // return a > b ? 1 : -1;
+                        return a.localeCompare(b);
+                    });
+                    tags = tags.join(", ")
                     text = document.createTextNode(tags);
                 } else {
                     text = document.createTextNode(item[prop]);
                 }
                 cell.appendChild(text);
-                // row.appendChild(cell);
             }
         }
-        // tbody.appendChild(row);
     }
 }
 
@@ -180,6 +180,7 @@ function clearResultsTable() {
     var table = getElement("results-table");
     var tbody = getElement('tbody', 'tag')[0];
     var tbodyLength = tbody.length;
+
 
     while (tbodyLength) {
         table.removeChild(tbody[--tbodyLength]);
