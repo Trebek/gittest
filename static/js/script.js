@@ -120,7 +120,8 @@ function buildResultsTable(items) {
 
     for (var i = 0; i < items.length; i++) {
         var item = items[i][0];
-        var row = tbody.insertRow(tbody.rows.length);
+        // var row = tbody.insertRow(tbody.rows.length);
+        var row = tbody.insertRow(tbody.length);
         for (var p = 0; p < props.length; p++) {
             if (item.hasOwnProperty(props[p])) {
                 var prop = props[p];
