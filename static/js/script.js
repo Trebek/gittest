@@ -65,11 +65,10 @@ function buildList(results) {
 
 
 function buildResultsTable(results) {
-    var props = ["title", "tags"];
+    var props = ["no", "title", "tags"];
 
     clearResultsTable();
 
-    // var tbody = getElement('tbody', 'tag')[0];
     var tbody = utils.getElements("tbody")[0];
 
     for (var i = 0; i < results.length; i++) {
@@ -80,7 +79,7 @@ function buildResultsTable(results) {
                 var prop = props[p];
                 var cell = row.insertCell(p);
                 var text;
-                if (prop == "tags") {
+                if (prop === "tags") {
                     var tags = item[prop];
                     tags.sort(function(a, b) {
                         return a.localeCompare(b);
@@ -90,6 +89,10 @@ function buildResultsTable(results) {
                 } else {
                     text = document.createTextNode(item[prop]);
                 }
+                cell.appendChild(text);
+            } else if (props[p] === "no") {
+                var cell = row.insertCell(p);
+                var text = document.createTextNode((i + 1).toString());
                 cell.appendChild(text);
             }
         }

@@ -32,11 +32,11 @@ layout: null
                     </div>
                     <div class="margin-bottom-8px">
                         <input type="radio" id="search-sort-relev" name="search-sort" value="relev" checked>
-                        <label for="search-sort-relev">Relevance</label>
+                        <label name="search-sort" for="search-sort-relev">Relevance</label>
                         <input type="radio" id="search-sort-date" name="search-sort" value="date">
-                        <label for="search-sort-date">Post Date</label>
+                        <label name="search-sort" for="search-sort-date">Post Date</label>
                         <input type="checkbox" id="search-sort-preced" value="preced">
-                        <label for="search-sort-preced">Precendance</label>
+                        <label name="search-sort" for="search-sort-preced">Precendance</label>
                     </div>
                     <!-- <div class="margin-bottom-8px">
                         <input type="checkbox" id="sort-prec" value="prec">
@@ -58,7 +58,7 @@ layout: null
                 </div>
                 <div id="help-box" class="box float-left">
                     <h1>What?</h1>
-                    <p>Just a Github Pages/JavaScript playground. At the moment, I'm testing out a very simplistic static site search, similar to, but not as complicated/good as Jekyll Simple Search.</p>
+                    <p>Just a Github Pages/JavaScript playground. At the moment I'm testing out a very simplistic static site search that searches through post data (title, post date, tags, categories, etc.) located in a JSON file that is retrieved from the server, and parsed/searched on the client side. It's similar to <a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple Jekyll Search</a> in that it searches post data in a JSON file client side, but it's nowhere near as polished, and probably doesn't work nearly as well. I just wrote it as a learning exercise.</p>
                     <p>
                         <strong>Relevance</strong> = Sort by relevance (weight) of item, which is based on the number of full/partial title/tag matches.<br>
                         <strong>Post Date</strong> = Sort by post date.
@@ -75,8 +75,9 @@ layout: null
                     <table id="search-results-table">
                         <thead>
                             <tr>
-                                <th class="width-37perc">Title</th>
-                                <th class="width-62perc">Tags</th>
+                                <th class="cell-32px">No.</th>
+                                <th class="cell-320px">Title</th>
+                                <th>Tags</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -88,6 +89,5 @@ layout: null
                 Footer text.
             </div> -->
         </div>
-        <!-- <script src="./static/js/script.js"></script> -->
     </body>
 </html>
