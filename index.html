@@ -12,6 +12,8 @@ layout: null
         <link rel="stylesheet" href="{{ site.baseurl }}/static/css/normalize.min.css">
         <link rel="stylesheet" href="{{ site.baseurl }}/static/css/style.css">
 
+        <script src="{{ site.baseurl }}/static/js/utils.js"></script>
+        <script src="{{ site.baseurl }}/static/js/search.js"></script>
         <script src="{{ site.baseurl }}/static/js/script.js"></script>
     </head>
     <body>
@@ -25,20 +27,27 @@ layout: null
                     <h1>Search</h1>
                     <div class="margin-bottom-8px">
                         <input type="text" id="search-input" placeholder="Enter query here.">
-                        <button id="search-button" class="width-64px">Search</button>
+                        <button id="search-submit" class="width-64px">Search</button>
                         <button id="clear-button" class="width-64px">Clear</button>
                     </div>
                     <div class="margin-bottom-8px">
-                        <input type="radio" id="sort-relev" name="sort-by" value="relev" checked>
-                        <label name="sort-by" for="sort-relev">Relevance</label>
-                        <input type="radio" id="sort-date" name="sort-by" value="date">
-                        <label name="sort-by" for="sort-date">Post Date</label>
+                        <input type="radio" id="search-sort-relev" name="search-sort" value="relev" checked>
+                        <label for="search-sort-relev">Relevance</label>
+                        <input type="radio" id="search-sort-date" name="search-sort" value="date">
+                        <label for="search-sort-date">Post Date</label>
+                        <input type="checkbox" id="search-sort-preced" value="preced">
+                        <label for="search-sort-preced">Precendance</label>
                     </div>
+                    <!-- <div class="margin-bottom-8px">
+                        <input type="checkbox" id="sort-prec" value="prec">
+                        <label name="sort-prec" for="sort-prec">Precendance</label>
+                    </div> -->
                     <h3>Test Queries</h3>
                     <div class="margin-bottom-8px">
                         <button name="test-button">text</button>
                         <button name="test-button">graphic</button>
                         <button name="test-button">text sci-fi 198</button>
+                        <button name="test-button">text fantasy</button>
                         <button name="test-button">fantasy 199</button>
                         <button name="test-button">infocom</button>
                         <button name="test-button">lucasarts</button>
@@ -49,23 +58,30 @@ layout: null
                 </div>
                 <div id="help-box" class="box float-left">
                     <h1>What?</h1>
-                    Just a test of Github Pages/javascript playground.
+                    <p>Just a Github Pages/JavaScript playground. At the moment, I'm testing out a very simplistic static site search, similar to, but not as complicated/good as Jekyll Simple Search.</p>
+                    <p>
+                        <strong>Relevance</strong> = Sort by relevance (weight) of item, which is based on the number of full/partial title/tag matches.<br>
+                        <strong>Post Date</strong> = Sort by post date.
+                    </p>
+                    <p>
+                        <strong>Precedance</strong> only applies to relevance sorting. When checked, searching takes into account the order of words in the query. Each word is assigned a weight modifier, valued from 0 to n, where n is the number of words in the query. Assignment is in descending order, from first word (left-most) to last. For example:<br><br>
+                        <strong>Query:</strong> "text sci-fi 198"<br>
+                        <strong>Modifiers:</strong> "text" = 2, "sci-fi" = 1, "198" = 0<br>
+                    </p>
                 </div>
                 <div class="clear"></div>
-                <div id="results-box">
+                <div id="search-results">
                     <h1>Results</h1>
-                    <div id="search-results">
-                        <table id="results-table">
-                            <thead>
-                                <tr>
-                                    <th class="width-37perc">Title</th>
-                                    <th class="width-62perc">Tags</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <span id="results-message">Try searching for something!</span>
-                    </div>
+                    <table id="search-results-table">
+                        <thead>
+                            <tr>
+                                <th class="width-37perc">Title</th>
+                                <th class="width-62perc">Tags</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <span id="search-results-message">Try searching for something!</span>
                 </div>
             </div>
             <!-- <div id="footer">

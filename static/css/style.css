@@ -25,7 +25,7 @@ input[type="text"] {
     padding: 4px;
 }
 
-label[name="sort-by"] {
+label[name="search-sort"] {
     margin-right: 8px;
 }
 
@@ -83,11 +83,7 @@ button:active {
     width: 300px;
 }
 
-/*#search-button {
-    width: 64px;
-}*/
-
-#results-table {
+#search-results-table {
 	display: none;
 	width: 100%;
 	table-layout: fixed;
@@ -95,18 +91,18 @@ button:active {
 	border: 1px solid #afafaf;
 }
 
-#results-table thead {
+#search-results-table thead {
 	background: #f8f8f8;
 }
 
-#results-table th, td {
-	padding: 4px;
+#search-results-table th, td {
+	padding: 8px;
 	border-style: solid;
 	border-color: #afafaf;
 	border-width: 0px 1px 1px 0px;
 }
 
-#results-message {
+#search-results-message {
 	display: inline;
 }
 
