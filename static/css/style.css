@@ -91,8 +91,13 @@ button:active {
 	border: 1px solid #afafaf;
 }
 
+#search-results-table tr:nth-child(even) {
+    background: #fbfbfb;
+}
+
 #search-results-table thead {
-	background: #f8f8f8;
+	background: #f6f6f6;
+	/*background: #afafaf;*/
 }
 
 #search-results-table th, td {
@@ -106,35 +111,12 @@ button:active {
 	display: inline;
 }
 
-.width-12perc {
-	width: 12.5%;
+.cell-32px {
+	width: 32px;
 }
 
-.width-25perc {
-	width: 25%;
-	/*width: 240px;*/
-}
-
-.width-37perc {
-	width: 37.5%;
-	/*width: 240px;*/
-}
-
-.width-50perc {
-	width: 50%;
-	/*width: 480px;*/
-}
-
-.width-62perc {
-	width: 62.5%;
-}
-
-.width-75perc {
-	width: 75%;
-}
-
-.width-64px {
-    width: 64px;
+.cell-320px {
+	width: 320px;
 }
 
 .box {
