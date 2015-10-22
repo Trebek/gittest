@@ -8,7 +8,7 @@ var noResults = "Sorry, couldn't find anything.";
 
 function search(e) {
     var results = staticSearch.search();
-    if (results.length > 0) {
+    if (results && (results.length > 0)) {
         buildResultsTable(results);
     } else {
         buildResultsTable(JSON.parse(utils.getSessionItem("searchData")));

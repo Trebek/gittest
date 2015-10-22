@@ -47,6 +47,7 @@ var staticSearch = {
         if (typeof(utils.getSessionItem("searchData")) === 'undefined') {
             utils.loadStatic(this.dataPath, this.initData, "application/json");
         }
+        console.log(utils.getSessionItem("searchData"));
     },
 
     initData: function(xml) {
