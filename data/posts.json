@@ -1,83 +1,407 @@
 [
     {
-        "title": "A Mind Forever Voyaging",
-        "date": "2014-02-17",
-        "tags": ["infocom", "1985", "dos", "text", "parser", "sci-fi",
-            "advanced"],
+        "title": "Zork: The Great Underground Empire",
         "category": "reviews",
+        "date": "2015-1-7",
+        "tags": [
+            "infocom",
+            "1980",
+            "dos",
+            "text",
+            "parser",
+            "xyzzy",
+            "plugh",
+            "classic",
+            "fantasy"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Wishbringer",
+        "category": "reviews",
+        "date": "2015-1-17",
+        "tags": [
+            "infocom",
+            "1985",
+            "dos",
+            "text",
+            "parser",
+            "fantasy",
+            "magic",
+            "beginner",
+            "introductory"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Ghost Town",
+        "category": "reviews",
+        "date": "2015-1-31",
+        "tags": [
+            "adventure international",
+            "1983",
+            "dos",
+            "scott adams",
+            "dos",
+            "text",
+            "parser",
+            "horror",
+            "ghosts"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "A Mind Forever Voyaging",
+        "category": "reviews",
+        "date": "2015-2-21",
+        "tags": [
+            "infocom",
+            "1985",
+            "dos",
+            "text",
+            "parser",
+            "sci-fi",
+            "science fiction",
+            "advanced",
+            "machines",
+            "computers",
+            "a.i.",
+            "artifical intelligence"
+        ],
         "url": "#"
     },
     {
         "title": "Hitchhicker's Guide to the Galaxy",
-        "date": "2014-07-03",
-        "tags": ["infocom", "1984", "dos", "text", "parser", "sci-fi", "comedy",
-            "advanced", "douglas adams", "steve meretzky"],
         "category": "reviews",
+        "date": "2015-3-19",
+        "tags": [
+            "infocom",
+            "1984",
+            "dos",
+            "text",
+            "parser",
+            "sci-fi",
+            "science fiction",
+            "comedy",
+            "advanced",
+            "douglas adams",
+            "steve meretzky"
+        ],
         "url": "#"
     },
     {
-        "title": "Adventureland",
-        "date": "2015-05-03",
-        "tags": ["adventure international", "1978", "dos", "text", "parser",
-            "scott adams", "fantasy"],
+        "title": "Police Quest: In Pursuit of the Death Angel",
         "category": "reviews",
+        "date": "2015-4-19",
+        "tags": [
+            "sierra",
+            "1987",
+            "dos",
+            "graphic",
+            "parser",
+            "police",
+            "cops",
+            "patrol",
+            "murder",
+            "drugs",
+            "action",
+            "agi",
+            "ega",
+            "cga"
+        ],
         "url": "#"
     },
     {
-        "title": "Police Quest",
-        "date": "2015-05-21",
-        "tags": ["sierra", "1987", "dos", "graphic", "parser", "police", "cops",
-            "patrol", "murder", "drugs", "action"],
+        "title": "Space Quest: Chapter I - The Sarien Encounter",
         "category": "reviews",
+        "date": "2015-5-27",
+        "tags": [
+            "sierra",
+            "1986",
+            "dos",
+            "graphic",
+            "parser",
+            "space",
+            "janitor",
+            "sci-fi",
+            "science",
+            "fiction",
+            "ega",
+            "cga",
+            "agi"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "The Black Cauldron",
+        "category": "reviews",
+        "date": "2015-7-5",
+        "tags": [
+            "sierra",
+            "1986",
+            "dos",
+            "fantasy",
+            "magic",
+            "graphic",
+            "agi",
+            "disney",
+            "adaptation",
+            "cartoon",
+            "animated",
+            "al lowe",
+            "parser"
+        ],
         "url": "#"
     },
     {
         "title": "Day of the Tentacle",
-        "date": "2015-06-16",
-        "tags": ["lucasarts", "1993", "dos", "graphic", "talkie", "tentacles",
-            "purple", "green", "maniac", "mansion", "classic", "comedy",
-            "fantasy"],
         "category": "reviews",
-        "url": "#"
-    },
-    {
-        "title": "Zork",
-        "date": "2015-08-08",
-        "tags": ["infocom", "1980", "dos", "text", "parser", "xyzzy", "plugh",
-            "classic", "fantasy"],
-        "category": "reviews",
-        "url": "#"
-    },
-    {
-        "title": "Space Quest",
-        "date": "2015-08-10",
-        "tags": ["sierra", "1986", "dos", "graphic", "parser", "space",
-            "janitor", "sci-fi", "science", "fiction"],
-        "category": "reviews",
+        "date": "2015-8-20",
+        "tags": [
+            "lucasarts",
+            "1993",
+            "dos",
+            "graphic",
+            "talkie",
+            "tentacles",
+            "purple",
+            "green",
+            "maniac mansion",
+            "classic",
+            "comedy",
+            "fantasy",
+            "vga"
+        ],
         "url": "#"
     },
     {
         "title": "King's Quest V",
-        "date": "2015-09-16",
-        "tags": ["sierra", "1990", "dos", "graphic", "talkie", "cedric", "owl",
-            "ants", "desert", "fantasy"],
         "category": "reviews",
+        "date": "2015-10-11",
+        "tags": [
+            "sierra",
+            "1990",
+            "dos",
+            "graphic",
+            "talkie",
+            "edric",
+            "owl",
+            "ants",
+            "desert",
+            "fantasy",
+            "vga"
+        ],
         "url": "#"
     },
     {
         "title": "Return of the Phantom",
-        "date": "2015-10-01",
-        "tags": ["microprose", "mps labs", "1993", "dos", "graphic", "talkie",
-            "opera", "mystery", "horror"],
         "category": "reviews",
+        "date": "2015-12-6",
+        "tags": [
+            "microprose",
+            "mps labs",
+            "1993",
+            "dos",
+            "graphic",
+            "talkie",
+            "opera",
+            "mystery",
+            "horror",
+            "vga"
+        ],
         "url": "#"
     },
     {
         "title": "Full Throttle",
-        "date": "2015-10-05",
-        "tags": ["lucasarts", "1995", "dos", "graphic", "talkie", "bikers",
-            "motorcycles", "gangs", "action"],
         "category": "reviews",
+        "date": "2016-2-3",
+        "tags": [
+            "lucasarts",
+            "1995",
+            "dos",
+            "graphic",
+            "talkie",
+            "bikers",
+            "motorcycles",
+            "gangs",
+            "action",
+            "vga"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Star Trek: 25th Anniversary",
+        "category": "reviews",
+        "date": "2016-4-7",
+        "tags": [
+            "interplay",
+            "star trek",
+            "1992",
+            "graphic",
+            "talkie",
+            "dos",
+            "space",
+            "sci-fi",
+            "science fiction",
+            "kirk",
+            "spock",
+            "mccoy",
+            "tos",
+            "original series",
+            "enterprise",
+            "ncc-1701",
+            "vga"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Maniac Mansion",
+        "category": "reviews",
+        "date": "2016-6-13",
+        "tags": [
+            "tentacles",
+            "green",
+            "1988",
+            "lucasarts",
+            "horror",
+            "comedy",
+            "graphic",
+            "ega",
+            "cga",
+            "scumm"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Call of Cthulhu: Shadow of the Comet",
+        "category": "reviews",
+        "date": "2016-8-25",
+        "tags": [
+            "1994",
+            "infogrames",
+            "i motion",
+            "horror",
+            "fantasy",
+            "graphic",
+            "vga"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "James Bond: The Stealth Affair",
+        "url": "#",
+        "date": "2016-11-13",
+        "tags": [
+            "1990",
+            "interplay",
+            "delphine",
+            "action",
+            "graphic",
+            "vga",
+            "james bond",
+            "espionage",
+            "mystery",
+            "spies",
+            "spy"
+        ],
+        "category": "reviews",
+        "alt-titles": [
+            "operation stealth"
+        ]
+    },
+    {
+        "title": "Beneath a Steel Sky",
+        "category": "reviews",
+        "date": "2017-2-2",
+        "tags": [
+            "1994",
+            "virgin interactive entertainment",
+            "revolution software",
+            "graphic",
+            "vga",
+            "sci-fi",
+            "science fiction",
+            "robots",
+            "trenchcoats",
+            "blade runner",
+            "talkie"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Bargon Attack",
+        "category": "reviews",
+        "date": "2017-4-25",
+        "tags": [
+            "1992",
+            "coktel vision",
+            "dos",
+            "graphic",
+            "sci-fi",
+            "science fiction",
+            "futuristic",
+            "future",
+            "comedy",
+            "aliens",
+            "invasion",
+            "enslaved",
+            "vga"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Dark Seed",
+        "category": "reviews",
+        "date": "2017-7-22",
+        "tags": [
+            "1992",
+            "dro soft",
+            "cyberdreams",
+            "horror",
+            "fantasy",
+            "graphic",
+            "vga",
+            "giger",
+            "dos"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "Dragonsphere",
+        "category": "reviews",
+        "date": "2017-10-22",
+        "tags": [
+            "1994",
+            "microprose",
+            "mps labs",
+            "fantsy",
+            "sorcerer",
+            "magic",
+            "vga",
+            "dos",
+            "talkie"
+        ],
+        "url": "#"
+    },
+    {
+        "title": "The Secret of Monkey Island",
+        "category": "reviews",
+        "date": "2018-1-23",
+        "tags": [
+            "1990",
+            "lucasarts",
+            "softgold",
+            "vga",
+            "dos",
+            "talkie",
+            "melee",
+            "lechuck",
+            "ghosts",
+            "fantasy",
+            "pirates",
+            "guybrush threepwood",
+            "scumm"
+        ],
         "url": "#"
     }
 ]
